@@ -18,12 +18,13 @@ process.once('message', async (workerArgs: WorkerArgs) => {
 		};
 
 		const nycPath = path.resolve(workerArgs.cwd, process.env['NYC_PATH'] || "node_modules/.bin/nyc");
-		const nycReporter = process.env['NYC_REPORTER'] || 'lcov';
+		const nycReporter = process.env['NYC_REPORTER'];
+		const nycOptions = nycReporter ? [`--reporter=${nycReporter}`] : []
 
 		spawn(
 			nycPath,
 			[
-				`--reporter=${nycReporter}`,
+				...nycOptions,
 				process.execPath,
 				workerArgs.workerScript!,
 				JSON.stringify(ipcOpts)
