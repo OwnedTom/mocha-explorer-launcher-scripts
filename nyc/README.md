@@ -10,7 +10,7 @@ Optional:
 |------------|-------------------------------------------------------------------------------------------------|
 |NYC_PORT    | The TCP port used by the launcher script to communicate with the worker script (default: `8123`)|
 |NYC_PATH    | The path to the `nyc` executable (default: `"node_modules/.bin/nyc"`)                           |
-|NYC_REPORTER| The `nyc` reporter (default: `"lcov"`)                                                          |
+|NYC_REPORTER| The `nyc` reporter (If not specified will use value from nyc config files)                      |
 
 ## Troubleshooting
 Enable the [diagnostic log](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter#troubleshooting) to see log messages from the launcher script.
